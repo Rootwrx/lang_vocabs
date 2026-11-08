@@ -1,0 +1,18 @@
+castor, cochon d'Inde, moineau, nid, lapin, cerf, perroquet, tortue, hérisson, chauve-souris
+troupeau, chien, poisson, poisson rouge, serpent, laisse, caisse, chenil, bac à litière, tique
+fourrage, vétérinaire, stériliser, animal de compagnie, chiot, chaton, moustache, vache, veau, taureau
+agneau, bélier, cochon, porcelet, sanglier, truie, âne, coq, canard, oie
+dinde, abeille, souris, belette, poussin, meute, essaim, ruche, groupe, patte
+volée, portée, tanière, perchoir, banc, écurie, récif corallien, fourmilière, toile d'araignée, muselière
+griffe, race, apprivoisé, bétail, plume, sauvage, fourrure, hurlement, mammifère, corbeau
+crapaud, sabot, nageoire, bois, défense, museau, ronronnement, fourmi, guêpe, frelon
+moustique, mouche, punaise de lit, cafard, papillon de nuit, papillon, chenille, coccinelle, coléoptère, libellule
+sauterelle, grillon, mante religieuse, araignée, ver de terre, limace, escargot, ver, oiseau, geai bleu
+mouette, aigle, hibou, vautour, cygne, pic, colibri, flamant rose, paon, grue
+cigogne, caille, autruche, requin, baleine, phoque, otarie, calmar, méduse, tortue de mer
+raie, hippocampe, oursin, homard, crevette, palourde, huître, moule, anguille, loutre
+morse, espadon, ours polaire, tigre, guépard, paresseux, orignal, ours, loup, renard
+écureuil, pieuvre, grenouille, grizzly, cheval, jument, mouton, brebis, chèvre, poule
+caneton, oisillon, biche, rouge-gorge, canari, hirondelle, crabe, orque, manchot, lézard
+éléphant, zèbre, hippopotame, kangourou, léopard, gorille, puce, queue, corne, croc
+crinière, collier, gamelle, poulailler, clapier, miauler, hiberner, prédateur, proie, banc de poissons

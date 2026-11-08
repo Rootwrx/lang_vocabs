@@ -1,0 +1,53 @@
+ami, comprendre, maison, se réveiller, écouter, à mon avis, cuisine, famille, proche, drôle
+bien sûr, souvent, se lever, attendre, jardin, enfant, traverser, gare, amour, animal de compagnie
+amoureux, voisin, cadeau, baignoire, s'habiller, repas, grand, petit, méchant, intelligent
+sympathique, piscine, salle de sport, salon, salle de bains, fenêtre, porte, à l'étage, plafond, poubelle
+salle à manger, chambre, rez-de-chaussée, surpris, en colère, perdu, heureux, triste, mensonge, seul
+effrayé, inquiet, désolé, détester, garder son calme, peur, oreille, genou, cheveux, estomac
+gorge, tête, visage, peau, bouche, dent, nez, cou, bras, épaule
+ventre, poitrine, dos, main, doigt, jambe, pied, cerveau, lapin, cheval
+mouton, serpent, chiot, chaton, vache, cochon, canard, abeille, souris, mouche
+araignée, oiseau, singe, ours, chien, chat, lion, éléphant, ferme, douloureux
+fièvre, tousser, mal de tête, douleur, malade, faible, faire une pause, temps libre, se détendre, vacances
+jour de congé, ennuyeux, fleur, herbe, feuille, champ, arbre, essayer, chaussure, veste
+t-shirt, pyjama, écharpe, chemise, manteau, pull, costume, cravate, ceinture, chaussette
+gant, chapeau, casquette, sous-vêtements, enlever, bouton, retour, ramener, porter, lunettes de soleil
+montre, bague, sac à main, poche, armoire, fauteuil, horloge, miroir, étagère, lampe
+machine à laver, fer à repasser, table à manger, lit, placard, tiroir, réveil, drap, rideau, couverture
+canapé, oreiller, ventilateur, douche, bureau, copain, se faire des amis, mère, père, frère
+grand-mère, grand-père, se marier, fils, neveu, nièce, petit-fils, petite-fille, tante, mariage
+oncle, cousin, cousine, parents, bébé, homme, garçon, fille, fête, nager
+chanter, danser, visiter, se coucher, se laver, cuisiner, laver, nettoyer, faire la vaisselle, faire la lessive
+mettre la table, avoir soif, moi aussi, pomme, banane, raisin, fraise, citron, carotte, ail
+haricot, pomme de terre, tomate, légume, fruit, riz, jambon, poulet, porc, poisson
+viande, oeuf, lait, crème, beurre, fromage, yaourt, eau, café, thé
+jus, bière, vin, boisson, poivre, sucre, miel, sel, huile, pain
+soupe, pâte, gâteau, chocolat, tranche, petit-déjeuner, déjeuner, dîner, plat, dessert
+commander, carte, partager, livraison, complet, note, épicé, sucré, assiette, verre
+délicieux, faire ses courses, paire, file d'attente, sac, bocal, boîte, prix, liste de courses, panier
+recette, préparer, bouteille, couper, mélanger, fourchette, couteau, cuillère, tasse, poêle
+four, cuisinière, frigo, congélateur, refroidir, cuit, congelé, ranger, reçu, caisse
+colis, offre, épicerie, marché, centre commercial, boulangerie, restaurant, supermarché, pharmacie, banque
+poste, mairie, hôpital, à cause de, billet, descendre, être en avance, être en retard, siège, annulé
+valise, sac à dos, sortie, train, bus, voiture, métro, vélo, taxi, avion
+aéroport, pont, rue, route, trottoir, immeuble, gare routière, parking, arrêt de bus, centre-ville
+quartier, station de métro, parc, ville, village, pays, plage, mer, montagne, hôtel
+voyage, sec, froid, frais, vent, neige, glace, tempête, nuage, ensoleillé
+nuageux, pluie, température, saison, printemps, été, automne, hiver, tourner, à gauche
+à droite, tout droit, monter, marcher, arriver, rentrer, entrer, rester, venir, question
+aider, vite, avoir besoin de, problème, continuer, faire une erreur, annuler, calendrier, s'inscrire, début
+urgence, consulter, grippe, rendez-vous, collègue, occupé, prendre un verre, travail, métier, réunion
+entreprise, école, bibliothèque, ordinateur, téléphone, télécharger, écran, mot de passe, application, chargeur
+avaler, travailler, apprendre, appeler, chercher, trouver, payer, donner, demander, répondre
+parler, penser, expliquer, rencontrer, utiliser, noter, choisir, inconnu, à bientôt, à plus tard
+bonne chance, bonne journée, bienvenue, bonjour, au revoir, salut, merci, s'il vous plaît, excuser, pardon
+de rien, bonne nuit, à tout à l'heure, pas de problème, je ne sais pas, je suis d'accord, je ne suis pas d'accord, à demain, pas de souci, donc
+faire, prendre, voir, regarder, habiter, pleurer, aimer, acheter, fermer, ramasser
+allumer, éteindre, ralentir, s'allonger, s'endormir, faire attention, commencer, finir, se dépêcher, cent
+mille, premier, heure, minute, jour, semaine, mois, année, matin, après-midi
+soir, nuit, aujourd'hui, demain, hier, maintenant, toujours, jamais, rouge, bleu
+vert, jaune, noir, blanc, gris, marron, violet, dans, sur, sous
+devant, derrière, à côté de, entre, avec, sans, près de, loin de, facile, plein
+mince, gros, vieux, jeune, bon, mauvais, cher, difficile, chaud, propre
+vide, moche, mignon, barbe, court, sale, lourd, rapide, lent, riche
+pauvre, ça marche, pas du tout

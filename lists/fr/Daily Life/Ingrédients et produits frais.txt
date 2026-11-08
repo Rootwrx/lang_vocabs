@@ -1,0 +1,18 @@
+cerise, basilic, crème fraîche, navet, homard, pomme, pastèque, brocoli, poivre, saumon
+banane, mangue, avocat, champignon, céleri, radis, artichaut, patate douce, lentille, gingembre
+piment, clou de girofle, porc, lapin, anchois, papaye, pistache, noix de macadamia, grillé, salé
+concassé, huileux, rassis, petit pois, chou kale, gousse d'ail, sucre, allégé, pâte à tartiner, chantilly
+herbe aromatique, épice, sauge, fenouil, crabe, palourde, calamar, noix de Saint-Jacques, côtelette, filet
+maigre, surgelé, tendre, melon, prune, produits laitiers, châtaigne, chou, coriandre, agneau
+raisin, poire, pêche, fraise, myrtille, framboise, mûre, ananas, citron, citron vert
+melon cantaloup, melon miel, figue, grenade, noix de coco, mandarine, frais, de saison, légume-racine, amande
+cacahuète, noix, noix de pécan, raisin sec, noisette, cru, sans sel, écrasé, crémeux, sec
+croquant, riz, avoine, vinaigre, miel, moutarde, carotte, pomme de terre, oignon, ail
+laitue, chou-fleur, épinard, poivron, concombre, courgette, maïs, pois, haricot, citrouille
+courge, chou frisé, poireau, cornichon, échalote, aubergine, pois chiche, farine, oeuf, sel
+levure, cacao, lait, crème, beurre, fromage, yaourt, saindoux, huile, graisse
+caillé, petit-lait, babeurre, écrémé, crème fouettée, crème aigre, menthe, romarin, origan, aneth
+ciboulette, curcuma, piment fort, safran, citronnelle, piment de la Jamaïque, panais, huître, moule, calmar
+poulpe, coquille Saint-Jacques, crevette, oeufs de poisson, anguille, espadon, poulet, dinde, veau, canard
+saucisse, jambon, hacher, pilon, viande hachée, gras, congelé, peau, tranche, poisson
+fruits de mer, thon, cabillaud, truite, maquereau

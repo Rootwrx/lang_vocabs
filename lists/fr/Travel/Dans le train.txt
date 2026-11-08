@@ -1,0 +1,4 @@
+billet, train express, horaire, monter, descendre, aller-retour, en retard, à l'heure, voiture-restaurant, siège
+annulé, à sens unique, voiture, allée, retardé, accoudoir, tarif, remboursement, passerelle, ascenseur
+escalier mécanique, escalier, salle d'attente, tôt, perturbation, distributeur automatique, snack, appuie-tête, voie, quai
+correspondance, contrôleur, compartiment, réservation, guichet, prise électrique

@@ -1,0 +1,4 @@
+boulangerie, magasin de vêtements, librairie, centre commercial, épicerie, boucherie, supermarché, fleuriste, quincaillerie, bijouterie
+magasin d'occasion, magasin de bricolage, supérette, grand magasin, maison de couture, magasin discount, dépôt-vente, magasin de chaussures, salon de beauté, salon de coiffure
+salon de manucure, boutique de cadeaux, magasin d'antiquités, horaires d'ouverture, magasin phare, poissonnerie, pâtisserie, caviste, papeterie, parfumerie
+animalerie, magasin de jouets, magasin de sport, opticien

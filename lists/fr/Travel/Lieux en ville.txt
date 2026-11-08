@@ -1,0 +1,7 @@
+centre-ville, quartier, rue principale, station de métro, gare, parc, bibliothèque, centre commercial, hôtel de ville, commissariat
+gratte-ciel, maison, pont, rond-point, banlieue, aire de jeux, rue, route, trottoir, feu de circulation
+immeuble, maison mitoyenne, demeure, usine, grand magasin, école, galerie, salle de sport, auberge de jeunesse, gare routière
+station-service, parking, caserne de pompiers, bureau de poste, palais de justice, immeuble de bureaux, banque, tour, fontaine, place
+front de mer, opéra, point de repère, vieille ville, zone piétonne, arrêt de bus, station de taxis, voie, ruelle, autoroute
+épicerie, piste cyclable, impasse, carrefour, billetterie, galerie d'art, plateforme d'observation, passage piéton, point de vue, hôpital
+église, cimetière, zone industrielle

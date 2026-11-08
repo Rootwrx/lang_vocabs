@@ -1,0 +1,6 @@
+conducteur, faire le plein, autoroute, ceinture de sécurité, itinéraire, circulation, rond-point, ralentir, clignotant, péage
+pneu crevé, panne, taxi, tarif, heure de pointe, déposer, adresse, raccourci, banquette arrière, disponibilité
+coffre, climatisation, chauffage, régler, voie, pont, plaque de rue, station-service, accélérer, continuer
+feux de détresse, heure d'arrivée, station de taxis, assurance, couverture, décapotable, voiture électrique, voiture hybride, phare, volant
+pneu, rayure, enfoncement, permis de conduire, passager, se garer, place de parking, embouteillage, limitation de vitesse, freiner
+tourner, faire demi-tour, marche arrière, rétroviseur, pare-brise, essuie-glace, portière, plaque d'immatriculation, aire de repos, carte grise

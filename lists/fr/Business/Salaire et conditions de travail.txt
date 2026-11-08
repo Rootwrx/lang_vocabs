@@ -1,0 +1,6 @@
+salaire, congé payé, heures supplémentaires, télétravail, fiche de paie, augmentation, salaire brut, congé maladie, à temps partiel, préavis
+incitation, option d'achat d'actions, rémunération, bourse, pourboire, prime, participation, indemnité journalière, salaire minimum, paie
+prime d'embauche, part des bénéfices, subvention, versement, avantage, plafond, objectif, jour de paie, retraite, assurance
+soins de santé, congé parental, congé sabbatique, déménagement, à temps plein, stagiaire, indépendant, saisonnier, de garde, éloigné
+horaire, acquis, salaire net, taux horaire, treizième mois, titre-restaurant, frais de déplacement, cotisations sociales, retenue à la source, période d'essai
+convention collective, travail de nuit, travail posté, congé sans solde, pause déjeuner, sécurité de l'emploi, charge de travail

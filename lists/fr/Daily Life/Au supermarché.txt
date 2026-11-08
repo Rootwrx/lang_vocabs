@@ -1,0 +1,7 @@
+rayon, chariot, date de péremption, faire le plein, surgelé, produits laitiers, vrac, barquette, traiteur, article
+périssable, passer en caisse, caisse automatique, comptoir, faire ses courses, douzaine, paire, ticket de caisse, demi-douzaine, allée
+tranche, lot, bonne affaire, caisse express, à moitié prix, file d'attente, boulangerie, épicerie, fruits de mer, produit biologique
+morceau, paquet, sac, bouteille, bocal, boîte, pain, six, ensemble, emballage
+papier aluminium, étiquette, code-barres, sceller, réduction, réduction de prix, code promo, carte de fidélité, liquidation, caissier
+balance, reçu, prix, liste de courses, marque, caisse, caisse enregistreuse, panier, viande, en rupture de stock
+faire des provisions, frais, congelé, réfrigéré, durée de conservation

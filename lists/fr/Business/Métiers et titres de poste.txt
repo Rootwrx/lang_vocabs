@@ -1,0 +1,7 @@
+médecin, enseignant, agent de sécurité, pompier, avocat, chauffeur de taxi, comptable, développeur web, coiffeur, plombier
+directeur général, stagiaire, auteur, boulanger, barman, boucher, caissier, fonctionnaire, employé de bureau, inspecteur
+chauffeur, ingénieur, agriculteur, agent de bord, graphiste, bibliothécaire, directeur, mécanicien, policier, journaliste
+vendeur, chirurgien, traducteur, serveur, écrivain, président, cinéaste, fondateur, enquêteur, commerçant
+romancier, directeur financier, directeur des opérations, administrateur, chef de département, chef de projet, assistant de direction, infirmier, dentiste, pharmacien
+vétérinaire, architecte, électricien, cuisinier, réceptionniste, secrétaire, livreur, facteur, jardinier, fleuriste
+agent immobilier, architecte d'intérieur, maçon

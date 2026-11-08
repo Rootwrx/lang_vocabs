@@ -1,0 +1,9 @@
+oreille, mâchoire, joue, hanche, front, ongle, paume, genou, artère, cuir chevelu
+paupière, gorge, crâne, tête, visage, peau, menton, lèvre, bouche, langue
+dent, nez, narine, lobe d'oreille, cou, cil, cicatrice, fossette, ride, bras
+épaule, clavicule, omoplate, ventre, poitrine, dos, colonne vertébrale, coude, aisselle, poignet
+main, pouce, doigt, petit doigt, gencive, articulation, chair, membre, jambe, cuisse
+tibia, mollet, cheville, talon, pied, orteil, cerveau, coeur, foie, rein
+rate, vessie, oesophage, côte, squelette, tache de rousseur, grain de beauté, tache de naissance, cheveux, sourcil
+tempe, nuque, tympan, pupille, avant-bras, majeur, annulaire, estomac, intestin, veine
+bassin, fémur, fesse, plante du pied, utérus, vagin, pénis, testicule

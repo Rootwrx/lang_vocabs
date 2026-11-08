@@ -1,0 +1,5 @@
+métro, prendre le bus, arrêt, tramway, billet, ligne, correspondance, heure de pointe, horaire, abonnement
+en retard, descendre, bondé, retard, tarif, parc-relais, monter, embouteillage, à sens unique, aller-retour
+recharger, amende, coupure de courant, porte, sortie, escalier mécanique, ascenseur, pôle, escale, se ranger
+dépose-minute, s'asseoir, annulation, perturbation, à l'heure, tôt, reprogrammer, rediriger, tomber en panne, interruption
+grève, remboursement, déposer, guichet, contrôleur, entrée, navette

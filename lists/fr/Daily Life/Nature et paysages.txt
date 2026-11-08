@@ -1,0 +1,10 @@
+paysage, nature sauvage, forêt, rivière, montagne, chute d'eau, vallée, falaise, sentier, sous-bois
+brume, colline, crête, cap, anse, sables mouvants, abîme, fosse, butte, grotte
+rocher, roche, galet, sable, argile, boue, mer, lac, étang, ruisseau
+baie, marais, marécage, tourbière, côte, limon, vague, forêt tropicale, campagne, feuillage
+chêne, pin, sapin, saule, érable, bouleau, souche, fleur, lierre, pré
+bosquet, fougère, mousse, herbe, roseau, tige, écorce, sol, terre végétale, racine
+brindille, floraison, champ, nid, proie, espèce, terrier, ciel, brise, vent
+brouillard, lumière du soleil, ombre, terre, coucher de soleil, pente, gland, île, sommet, feuille
+bourgeon, nénuphar, plaine, massif, berge, clairière, lisière, tronc, branche, désert
+estuaire, rosée

@@ -1,0 +1,5 @@
+salon, salle à manger, chambre, cuisine, salle d'eau, couloir, buanderie, sous-sol, chambre d'amis, cellier
+débarras, salle de bains, hall, placard, véranda, salle de jeux, dressing, fenêtre, rebord de fenêtre, porte
+à l'étage, plafond, escalier, jardin, chemin d'accès, portail, clôture, boîte aux lettres, pelouse, plate-bande
+piscine, bain à remous, barbecue, arroseur, poubelle, bac de recyclage, corde à linge, perron, balcon, cour
+rez-de-chaussée, palier, volet

@@ -1,0 +1,6 @@
+entrepôt, chaîne de montage, approvisionnement, délai de livraison, usine, matières premières, produit fini, chariot élévateur, contrôle de qualité, goulot d'étranglement
+expédier, atelier, augmenter, production de masse, lot, déchet, débit, défaut, flux de travail, offre
+palette, caisse, papier bulle, durée de conservation, expédition, fret, colis, étiquette, code-barres, dévidoir
+rembourrage, fragile, navire, gaspillage, sous-traiter, transporteur, répartiteur, dernier kilomètre, preuve de livraison, numéro de suivi
+pénurie, problème technique, ouvrier, externalisation, ordre de fabrication, conditionnement, maintenance préventive, zone de réception, rayonnage, quai de chargement
+manutention, conteneur, film étirable, bon de livraison, dédouanement

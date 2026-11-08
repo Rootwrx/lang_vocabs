@@ -1,0 +1,15 @@
+consulter, grippe, antécédents médicaux, allergie, symptôme, contagieux, nausée, douleur, sans ordonnance, bilan de santé
+santé, douloureux, essoufflé, nez qui coule, oppression thoracique, mal d'estomac, vision floue, engourdissement, fièvre, tousser
+mal de tête, aiguille, béquille, point de côté, éruption, rendez-vous, prévoir, disponibilité, créneau, assurance
+couverture, ecchymose, vertige, dépistage, échographie, bilan sanguin, échantillon, pouls, suivi, évaluation
+handicap, dossier médical, salle d'attente, repos au lit, ordonnance, renouveler, posologie, crème, sirop, blessé
+malade, diminué, sourd, cécité, carie dentaire, grossesse, atroce, persistant, léger, enclin
+avaler, remède, souffrir, subir, soulager, acte médical, début, consommation, étouffer, traitement
+blessure, rétablissement, rechute, urgence, perdre connaissance, chair de poule, haletant, contraction, vomir, rigide
+démangeaison, gonflé, enflé, frisson, trembler, étourdi, gémissement, frêle, cloque, nodule
+mal de mer, coup de soleil, température corporelle, pression artérielle, mal de gorge, éternuement, sans danger, conseiller, conseil, avertissement
+réduire, éviter, obéir, soulagement, régler, empêcher, durable, carence, circulation sanguine, prélèvement
+médicament, saigner, respiration, gravement, souffrance, faible, mortel, régime, gérable, insupportable
+patraque, en voie de guérison, en pleine forme, grave, entorse, sensibilité, élancement, ausculter, médecin traitant, spécialiste
+cabinet médical, chronique, diarrhée, perte d'appétit, respiration sifflante, acouphène, brûlure d'estomac, crampe, raideur, radiographie
+arrêt maladie, certificat médical

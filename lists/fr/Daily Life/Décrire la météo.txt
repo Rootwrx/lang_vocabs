@@ -1,0 +1,7 @@
+ensoleillé, bulletin météo, nuageux, averse, brumeux, vague de chaleur, venteux, brouillard, se couvrir, verglas
+éclaircie, clair, lourd, sec, froid, glacial, glacé, doux, chaud, sécheresse
+prévisions météo, haute saison, inondation, indice de chaleur, vent, rafale, brise, bruine, orage, foudre
+tonnerre, neige, grêle, glace, gel, givre, front froid, front chaud, alerte tempête, avis
+saison, printemps, été, automne, hiver, saison des pluies, toute l'année, saisonnier, tiède, brûlant
+étouffant, frais, frisquet, tempête, nuage, bourrasque, ouragan, arc-en-ciel, crue soudaine, tempête de poussière
+pluie, humide, température, degré, indice UV, instable, maussade, tornade

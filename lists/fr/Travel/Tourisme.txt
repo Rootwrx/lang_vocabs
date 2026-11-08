@@ -1,0 +1,8 @@
+centre-ville, visite guidée, monument, transports en commun, lieu historique, à pied, zone piétonne, point de vue, indication, carte
+attraction touristique, bondé, plateforme d'observation, ligne d'horizon, escalier, exposition, à couper le souffle, superbe, énorme, caractéristique
+tour, pont, imposant, colonne, flèche, cour, orné, symétrique, sculpture, galerie d'art
+chef-d'oeuvre, peinture, parc national, refuge faunique, sentier de randonnée, aire de pique-nique, parking, cascade, fleuve, plage
+montagne, grotte, moulin à vent, phare, chercher, excursion d'une journée, guide touristique, point de rencontre, pittoresque, paisible
+spectaculaire, vue, paysage, paysage urbain, paysage marin, belvédère, contempler, regard, coup d'oeil, ambiance
+se démarquer, musée, cathédrale, hôtel de ville, vieille ville, ruelle, fontaine, façade, office de tourisme, plaque commémorative
+incontournable, flâner, hors des sentiers battus, animé, médiéval
