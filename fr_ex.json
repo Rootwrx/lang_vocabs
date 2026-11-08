@@ -1,0 +1,410 @@
+{
+  "words": [
+    {
+      "w": "ami",
+      "pos": "nm",
+      "ipa": "/ami/",
+      "ar": "صديق",
+      "def": "Une personne qu’on aime bien et avec qui on passe du temps.",
+      "gender": "un ami, une amie; pluriel : des amis, des amies",
+      "pattern": "être ami avec qqn; un ami de qqn",
+      "ex": [
+        {
+          "fr": "Mon *ami* m’aide avec mon ordinateur.",
+          "ar": "صديقي كيساعدني فالحاسوب."
+        },
+        {
+          "fr": "J’ai rencontré un nouvel *ami* au travail.",
+          "ar": "تعرفت على صديق جديد فالخدمة."
+        }
+      ],
+      "col": [
+        {
+          "p": "un *ami* proche [coll] (daily)",
+          "p_ar": "صديق مقرّب",
+          "fr": "C’est un *ami* proche, je peux tout lui dire.",
+          "ar": "هو صديق مقرّب، نقدر نقول ليه كلشي."
+        },
+        {
+          "p": "être *ami* avec qqn [frame] (daily)",
+          "p_ar": "يكون صديقًا لشخص",
+          "fr": "Je suis *ami* avec Karim depuis l’école.",
+          "ar": "أنا صديق كريم من أيام المدرسة."
+        },
+        {
+          "p": "un *ami* de longue date [coll] (daily)",
+          "p_ar": "صديق من زمان",
+          "fr": "C’est un *ami* de longue date.",
+          "ar": "هذا صديق ديالي من زمان."
+        }
+      ],
+      "note": "Dis : être ami avec quelqu’un, pas être ami à quelqu’un. Avec exprime la relation."
+    },
+    {
+      "w": "comprendre",
+      "pos": "v",
+      "ipa": "/kɔ̃pʁɑ̃dʁ/",
+      "ar": "يفهم",
+      "def": "Savoir ce que quelqu’un dit ou ce qu’une chose veut dire.",
+      "forms": "3e groupe; je comprends, tu comprends, il comprend, nous comprenons, vous comprenez, ils comprennent; passé composé : avoir compris",
+      "pattern": "comprendre qqn/qqch; comprendre que + phrase; faire comprendre qqch à qqn",
+      "ex": [
+        {
+          "fr": "Je ne *comprends* pas cette question.",
+          "ar": "ما فهمتش هاد السؤال."
+        },
+        {
+          "fr": "Elle a vite *compris* le problème.",
+          "ar": "فهمات المشكل بسرعة."
+        }
+      ],
+      "col": [
+        {
+          "p": "*comprendre* quelque chose [coll] (daily)",
+          "p_ar": "يفهم شي حاجة",
+          "fr": "Tu as *compris* les instructions ?",
+          "ar": "واش فهمتي التعليمات؟"
+        },
+        {
+          "p": "*comprendre* que… [frame] (daily)",
+          "p_ar": "يفهم أن…",
+          "fr": "Je *comprends* que tu sois fatigué.",
+          "ar": "كنفهم أنك عيان."
+        },
+        {
+          "p": "faire *comprendre* [v+prep] (daily)",
+          "p_ar": "يوضّح لشخص / يخليه يفهم",
+          "fr": "Je vais lui faire *comprendre* le problème.",
+          "ar": "غادي نوضح ليه المشكل."
+        }
+      ],
+      "note": "Dis : comprendre quelque chose, pas comprendre de quelque chose. Le verbe prend directement son complément."
+    },
+    {
+      "w": "maison",
+      "pos": "nf",
+      "ipa": "/mɛzɔ̃/",
+      "ar": "دار / منزل",
+      "def": "Le bâtiment ou le lieu où on habite.",
+      "gender": "la maison; pluriel : les maisons",
+      "pattern": "à la maison; rentrer à la maison; chez qqn",
+      "ex": [
+        {
+          "fr": "La *maison* de mes parents est à Rabat.",
+          "ar": "دار واليديا فالرباط."
+        },
+        {
+          "fr": "Cette *maison* est très calme.",
+          "ar": "هاد الدار هادئة بزاف."
+        }
+      ],
+      "col": [
+        {
+          "p": "être à la *maison* [coll] (daily)",
+          "p_ar": "يكون فالدار",
+          "fr": "Je suis à la *maison* ce soir.",
+          "ar": "أنا فالدار هاد العشية."
+        },
+        {
+          "p": "rentrer à la *maison* [coll] (daily)",
+          "p_ar": "يرجع للدار",
+          "fr": "Je rentre à la *maison* vers six heures.",
+          "ar": "غادي نرجع للدار مع الستة."
+        },
+        {
+          "p": "chez moi / chez qqn [exp] (daily)",
+          "p_ar": "عندي / عند شي واحد",
+          "fr": "On mange chez moi demain.",
+          "ar": "غدا غادي نتغداو عندي."
+        }
+      ],
+      "note": "Dis : à la maison, pas dans la maison pour dire qu’on est chez soi. Dans la maison insiste sur l’intérieur du bâtiment."
+    },
+    {
+      "w": "se réveiller",
+      "pos": "v pron",
+      "ipa": "/sə ʁeveje/",
+      "ar": "يفيق / يستيقظ",
+      "def": "Arrêter de dormir.",
+      "forms": "1er groupe pronominal; je me réveille, tu te réveilles, il se réveille, nous nous réveillons, vous vous réveillez, ils se réveillent; passé composé : être réveillé(e)",
+      "pattern": "se réveiller à + heure; se réveiller tôt/tard",
+      "ex": [
+        {
+          "fr": "Je me *réveille* à sept heures en semaine.",
+          "ar": "كنفيق مع السبعة ف أيام الخدمة."
+        },
+        {
+          "fr": "Il s’est *réveillé* à cause du bruit.",
+          "ar": "فاق بسبب الضجيج."
+        }
+      ],
+      "col": [
+        {
+          "p": "se *réveiller* tôt [coll] (daily)",
+          "p_ar": "يفيق بكري",
+          "fr": "Je dois me *réveiller* tôt demain.",
+          "ar": "خاصني نفيق بكري غدا."
+        },
+        {
+          "p": "se *réveiller* à + heure [frame] (daily)",
+          "p_ar": "يفيق مع ساعة معيّنة",
+          "fr": "Elle se *réveille* à huit heures.",
+          "ar": "كتفيق مع الثمانية."
+        },
+        {
+          "p": "réveiller qqn [v] (daily)",
+          "p_ar": "يفيق شي واحد",
+          "fr": "Tu peux me réveiller à six heures ?",
+          "ar": "تقدر تفيقني مع الستة؟"
+        }
+      ],
+      "note": "Dis : je me suis réveillé(e), avec être au passé composé. Le participe s’accorde avec le sujet."
+    },
+    {
+      "w": "écouter",
+      "pos": "v",
+      "ipa": "/ekute/",
+      "ar": "يسمع بانتباه / ينصت",
+      "def": "Faire attention à un son ou à ce que quelqu’un dit.",
+      "forms": "1er groupe; j’écoute, tu écoutes, il écoute, nous écoutons, vous écoutez, ils écoutent; passé composé : avoir écouté",
+      "pattern": "écouter qqn/qqch; écouter de la musique; écouter parler qqn",
+      "ex": [
+        {
+          "fr": "J’*écoute* un podcast en français.",
+          "ar": "كنسمع بودكاست بالفرنسية."
+        },
+        {
+          "fr": "Écoute, j’ai une question.",
+          "ar": "سمع، عندي سؤال."
+        }
+      ],
+      "col": [
+        {
+          "p": "*écouter* de la musique [coll] (daily)",
+          "p_ar": "يسمع الموسيقى",
+          "fr": "J’*écoute* de la musique en travaillant.",
+          "ar": "كنسمع الموسيقى وأنا خدام."
+        },
+        {
+          "p": "*écouter* qqn [coll] (daily)",
+          "p_ar": "ينصت لشخص",
+          "fr": "Je t’*écoute*, vas-y.",
+          "ar": "كنسمع ليك، تفضل."
+        },
+        {
+          "p": "bien *écouter* [coll] (work)",
+          "p_ar": "يركّز فالسماع",
+          "fr": "Il faut bien *écouter* les consignes.",
+          "ar": "خاصك تسمع التعليمات مزيان."
+        }
+      ],
+      "note": "Dis : écouter quelqu’un, pas écouter à quelqu’un. On utilise écouter sans préposition."
+    },
+    {
+      "w": "à mon avis",
+      "pos": "exp",
+      "ipa": "/a mɔ̃n avi/",
+      "ar": "في رأيي / على حساب رأيي",
+      "def": "Une façon de dire ce que je pense.",
+      "pattern": "à mon avis; à ton avis ?; à mon avis, + phrase",
+      "ex": [
+        {
+          "fr": "*À mon avis*, ce film est trop long.",
+          "ar": "ف رأيي، هاد الفيلم طويل بزاف."
+        },
+        {
+          "fr": "*À mon avis*, il faut vérifier les chiffres.",
+          "ar": "ف رأيي، خاصنا نراجعو الأرقام."
+        }
+      ],
+      "col": [
+        {
+          "p": "*à mon avis* [soc] (daily)",
+          "p_ar": "ف رأيي",
+          "fr": "*À mon avis*, on devrait partir maintenant.",
+          "ar": "ف رأيي، خاصنا نمشيو دابا."
+        },
+        {
+          "p": "et *à ton avis* ? [soc] (daily)",
+          "p_ar": "وانت شنو رأيك؟",
+          "fr": "Moi, j’aime bien. Et *à ton avis* ?",
+          "ar": "أنا عجبني. وانت شنو رأيك؟"
+        },
+        {
+          "p": "*à mon avis*, + opinion [frame] (writing)",
+          "p_ar": "ف رأيي، + رأي",
+          "fr": "*À mon avis*, cette solution est la plus simple.",
+          "ar": "ف رأيي، هاد الحل هو الأسهل."
+        }
+      ],
+      "note": "À l’oral, on dit aussi « je trouve que… », souvent plus naturel dans une conversation."
+    },
+    {
+      "w": "cuisine",
+      "pos": "nf",
+      "ipa": "/kɥizin/",
+      "ar": "مطبخ / الطبخ",
+      "def": "La pièce où on prépare à manger; ou l’activité de préparer les repas.",
+      "gender": "la cuisine; pluriel : les cuisines",
+      "pattern": "dans la cuisine; faire la cuisine; cuisiner qqch",
+      "ex": [
+        {
+          "fr": "La *cuisine* est juste à côté du salon.",
+          "ar": "المطبخ حدّ الصالون."
+        },
+        {
+          "fr": "La *cuisine* marocaine est très variée.",
+          "ar": "الطبخ المغربي متنوع بزاف."
+        }
+      ],
+      "col": [
+        {
+          "p": "faire la *cuisine* [coll] (daily)",
+          "p_ar": "يطيب / يوجد الماكلة",
+          "fr": "Je fais la *cuisine* ce soir.",
+          "ar": "أنا غادي نطيب هاد العشية."
+        },
+        {
+          "p": "être dans la *cuisine* [coll] (daily)",
+          "p_ar": "يكون فالمطبخ",
+          "fr": "Les enfants sont dans la *cuisine*.",
+          "ar": "الدراري فالمطبخ."
+        },
+        {
+          "p": "la *cuisine* marocaine [coll] (daily)",
+          "p_ar": "الطبخ المغربي",
+          "fr": "J’adore la *cuisine* marocaine.",
+          "ar": "كنعشق الطبخ المغربي."
+        }
+      ],
+      "note": "La cuisine = le lieu ou le style de nourriture; cuisiner = préparer à manger."
+    },
+    {
+      "w": "famille",
+      "pos": "nf",
+      "ipa": "/famij/",
+      "ar": "العائلة",
+      "def": "Les personnes de la même famille : parents, enfants, frères, sœurs…",
+      "gender": "la famille; pluriel : les familles",
+      "pattern": "dans ma famille; une famille de + nombre; être en famille",
+      "ex": [
+        {
+          "fr": "Ma *famille* habite près de Fès.",
+          "ar": "عائلتي ساكنة قرب فاس."
+        },
+        {
+          "fr": "On passe dimanche en *famille*.",
+          "ar": "غادي ندوزو الأحد مع العائلة."
+        }
+      ],
+      "col": [
+        {
+          "p": "ma *famille* [coll] (daily)",
+          "p_ar": "عائلتي",
+          "fr": "Je téléphone à ma *famille* tous les soirs.",
+          "ar": "كنعيط لعائلتي كل ليلة."
+        },
+        {
+          "p": "en *famille* [exp] (daily)",
+          "p_ar": "مع العائلة",
+          "fr": "On a déjeuné en *famille*.",
+          "ar": "تغدينا مع العائلة."
+        },
+        {
+          "p": "un repas de *famille* [coll] (daily)",
+          "p_ar": "وجبة عائلية",
+          "fr": "On organise un repas de *famille* samedi.",
+          "ar": "غادي نديرو غدا عائلي نهار السبت."
+        }
+      ],
+      "note": "Dis : ma famille, même si famille est féminin. Le possessif s’accorde avec le nom : ma."
+    },
+    {
+      "w": "proche",
+      "pos": "adj",
+      "ipa": "/pʁɔʃ/",
+      "ar": "قريب",
+      "def": "À petite distance; ou avec une relation forte avec quelqu’un.",
+      "forms": "féminin : proche; pluriel : proches",
+      "pattern": "proche de qqn/qqch; être proche de qqn; un proche (nom)",
+      "ex": [
+        {
+          "fr": "La gare est *proche* de chez moi.",
+          "ar": "المحطة قريبة من داري."
+        },
+        {
+          "fr": "Je suis très *proche* de ma sœur.",
+          "ar": "أنا قريب بزاف من أختي."
+        }
+      ],
+      "col": [
+        {
+          "p": "être *proche de* qqn [v+prep] (daily)",
+          "p_ar": "يكون مقرّب من شخص",
+          "fr": "Je suis *proche de* mes cousins.",
+          "ar": "أنا مقرّب من ولاد عمي."
+        },
+        {
+          "p": "tout *près de* [coll] (daily)",
+          "p_ar": "قريب بزاف من",
+          "fr": "Le café est tout près de la maison.",
+          "ar": "القهوة قريبة بزاف من الدار."
+        },
+        {
+          "p": "un *proche* [nm] (daily)",
+          "p_ar": "واحد من المقرّبين",
+          "fr": "Je vais aider un proche ce week-end.",
+          "ar": "غادي نعاون شي واحد من المقرّبين هاد الويكاند."
+        }
+      ],
+      "note": "Dis : proche de, pas proche à. La préposition habituelle est de."
+    },
+    {
+      "w": "drôle",
+      "pos": "adj",
+      "ipa": "/dʁol/",
+      "ar": "مضحك / غريب",
+      "def": "Qui fait rire; parfois, qui est bizarre.",
+      "forms": "féminin : drôle; pluriel : drôles",
+      "pattern": "être drôle; trouver qqch drôle; drôle de + nom",
+      "ex": [
+        {
+          "fr": "Ton frère est vraiment *drôle*.",
+          "ar": "خوّك مضحك بزاف."
+        },
+        {
+          "fr": "C’est *drôle*, je viens de recevoir le même message.",
+          "ar": "غريب، توصلت بنفس الرسالة دابا."
+        }
+      ],
+      "col": [
+        {
+          "p": "être *drôle* [coll] (daily)",
+          "p_ar": "يكون مضحك",
+          "fr": "Cette vidéo est *drôle*.",
+          "ar": "هاد الفيديو مضحك."
+        },
+        {
+          "p": "trouver qqch *drôle* [frame] (daily)",
+          "p_ar": "يشوف شي حاجة مضحكة",
+          "fr": "Je trouve cette histoire *drôle*.",
+          "ar": "كنشوف هاد القصة مضحكة."
+        },
+        {
+          "p": "un *drôle de* + nom [exp] (daily)",
+          "p_ar": "شي حاجة غريبة",
+          "fr": "Il a un *drôle de* sourire.",
+          "ar": "عندو ابتسامة غريبة."
+        }
+      ],
+      "note": "Drôle peut vouloir dire « مضحك » ou « غريب » selon le contexte."
+    }
+  ],
+  "texts": [
+    {
+      "title": "Texte 1 – Une journée chez moi",
+      "fr": "Ce matin, je me suis **réveillé** tôt et j’ai écouté un podcast pendant le petit-déjeuner. Ensuite, je suis rentré à la **maison** et j’ai retrouvé ma **famille**. Mon **ami** Youssef est passé nous voir. Il est **proche de** ma famille et tout le monde l’aime bien. On a préparé un repas en **famille** dans la **cuisine**. À **mon avis**, Youssef est très **drôle** : il raconte toujours des histoires amusantes. Après le repas, il m’a aidé à réparer mon ordinateur. Je lui ai expliqué le problème, et il a tout **compris** rapidement. Je l’ai bien **écouté** quand il m’a montré la solution. Puis, on a fait la **cuisine** pour le dîner. Ma sœur s’est **réveillée** tard et elle a demandé ce qu’on préparait. On lui a expliqué, et elle a **compris** tout de suite. Le soir, je suis resté à la **maison** avec mes **proches**. **À mon avis**, c’était une très bonne journée. Mon **ami** est parti, mais il a promis de revenir bientôt. On a **écouté** de la musique avant de dormir.",
+      "ar": "هذا الصباح فقت بكري وسمعت بودكاست أثناء الفطور. من بعد رجعت للدار ولقيت عائلتي. صاحبي يوسف جا يزورنا. هو مقرّب من عائلتي والكل كيبغيه. وجدنا وجبة عائلية فالمطبخ. ف رأيي، يوسف مضحك بزاف، ديما كيحكي قصص كتضحك. من بعد الماكلة عاوني نصلح الحاسوب. شرحت ليه المشكل وفهم بسرعة. سمعت ليه مزيان ملي ورّاني الحل. من بعد وجدنا العشاء. أختي فاقت متأخرة وسولات شنو كنوجدو. شرحنا ليها وفهمات دغيا. فالليل بقيت فالدار مع المقرّبين ديالي. ف رأيي، كان نهار زوين بزاف. صاحبي مشى ولكن وعد يرجع قريب. سمعنا الموسيقى قبل ما نعسو."
+    }
+  ]
+}

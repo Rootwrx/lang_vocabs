@@ -2,55 +2,77 @@
  * UI lives on the home page (an "Edit lists" toggle adds a toolbar to every list card; dialogs are modals).
  * All repo writes go through ghCommit() in github.js; the build-index Action rebuilds index.json/search.json.
  * After each commit the in-memory INDEX is patched so the home page updates instantly.
- * validateList() mirrors check() in make_index.py — keep both in sync.
- * Lists may live in subfolders of data/; a file name below is always the path relative to data/
- * (e.g. "by_level/Basic Vocabulary (A1A2)/part1.json").
- * Uses globals from index.html at call time: app, esc, S, save, cache, INDEX, J, route. */
+ * validateList() mirrors check() in make_index.py and meta() mirrors meta() there — keep them in sync.
+ * Lists may live anywhere under data/ (data/animals.json, data/animals/part1.json, data/fr/<group>/<set>/part1.json …);
+ * a file name below is always the path relative to data/.
+ * Uses globals from app.js / i18n.js at call time: app, esc, S, save, cache, INDEX, CAT, J, route, crumbs, G, LANGS, t. */
 
 /* ---------- helpers ---------- */
 const slug = s => String(s).replace(/\.json$/i, '').toLowerCase().replace(/[^a-z0-9_-]+/g, '-').replace(/^-+|-+$/g, '');
 /* same rule as make_index.py: path without .json, folders joined with "__", unsafe characters -> "_" */
-const listId = file => file.replace(/\.json$/i, '').split('/').join('__').replace(/[^A-Za-z0-9_-]+/g, '_');
-/* where an uploaded list is saved: data/<group>/<set>/part<N>.json when it has group + set, else a flat data/<name>.json */
+const listId = file => { let p = file.replace(/\.json$/i, '').split('/'); if (p.length > 1 && p[0].toLowerCase() === 'en') p = p.slice(1); return p.join('__').replace(/[^A-Za-z0-9_-]+/g, '_'); };   // data/en/x and data/x share one id
 const dirName = s => String(s).replace(/[\\/:*?"<>|#%]+/g, '-').replace(/\s+/g, ' ').trim();
 const gDir = s => String(s).toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_+|_+$/g, '') || 'other';
-const listPath = (d, name) => d && d.group && d.set
-  ? `${gDir(d.group)}/${dirName(d.set) || 'set'}/${d.part ? 'part' + d.part : name}.json` : name + '.json';
 const partOf = name => { const m = /^part[-_ ]?(\d+)$/i.exec(name); return m ? +m[1] : 0; };
-/* group / set / part / title of a list — same rule as meta() in make_index.py: the FOLDER decides
- * (data/<group>/<set>/part<N>.json), fields inside the file override it, and the title is "<set> – Part <N>" unless the file has one */
+/* every language lives under data/<lang>/ (data/en/…, data/fr/…); lists without a language folder are English */
+const langDir = l => l ? l + '/' : '';
+/* where an uploaded list is saved: data/[<lang>/]<group>/<set>/part<N>.json when it has group + set, else a flat data/[<lang>/]<name>.json */
+const listPath = (d, name, lang) => langDir(lang) + (d && d.group && d.set
+  ? `${gDir(d.group)}/${dirName(d.set) || 'set'}/${d.part ? 'part' + d.part : name}.json` : name + '.json');
+
+const prettyName = s => { s = String(s); return s === s.toLowerCase() ? s.replace(/[_-]+/g, ' ').split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ') : s; };
+const catGroup = n => ((CAT || []).find(c => gDir(c.group) === gDir(n)) || {}).group || '';
+const setName = (n, lang) => { for (const c of CAT || []) if ((c.lang || 'en') === lang) for (const s of c.sets || []) if (gDir(s) === gDir(n)) return s; return prettyName(n); };
+const findGroup = (st, lang) => ((CAT || []).find(c => (c.lang || 'en') === lang && (c.sets || []).some(s => gDir(s) === gDir(st))) || {}).group || '';
+/* group / set / part / title / lang of a list — same rule as meta() in make_index.py (see the layouts listed there).
+ * Fields written inside the file override the path. */
 function meta(file, d) {
-  const folders = file.replace(/\.json$/i, '').split('/'), stem = folders.pop();
-  let group = d.group || '', set = d.set || '', part = d.part || 0;
-  if (folders.length) {
-    group = group || (CAT || []).map(c => c.group).find(g => gDir(g) === folders[0]) || folders[0].replace(/_+/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
-    set = set || folders.slice(1).join(' / ');
-    part = part || partOf(stem);
-  }
-  const title = d.title || (set && part ? `${set} – Part ${part}` : set && folders.length ? `${set} – ${stem}` : set || stem);
-  return { group, set, part, title };
+  const parts = file.replace(/\.json$/i, '').split('/'), stem = parts.pop(), keys = Object.keys(LANGS);
+  let lang = d.lang || '';
+  if (parts.length && keys.includes(parts[0].toLowerCase())) { lang = lang || parts[0].toLowerCase(); parts.shift(); }
+  if (!keys.includes(lang)) lang = 'en';
+  let group = d.group || '', set = d.set || '', part = d.part || 0, named = false;
+  const m = /^part[-_ ]?(\d+)$/i.exec(stem); part = part || (m ? +m[1] : 0);
+  if (parts.length >= 2) {
+    group = group || catGroup(parts[0]) || prettyName(parts[0]);
+    set = set || parts.slice(1).map(p => setName(p, lang)).join(' / ');
+  } else if (parts.length === 1) {
+    const g = catGroup(parts[0]);
+    if (g && !group && !set) { group = g; if (!m) { set = setName(stem, lang); named = true; } }
+    else set = set || setName(parts[0], lang);
+  } else { set = set || setName(stem, lang); named = true; }
+  if (!group && set) group = findGroup(set, lang);
+  const title = d.title || (part ? `${set || group || prettyName(stem)} – ${lang === 'fr' ? 'Partie' : 'Part'} ${part}` : set && !named ? `${set} – ${stem}` : set || prettyName(stem));
+  return { group, set, part, title, lang };
 }
 const idxEntry = (file, d) => ({ id: listId(file), file, ...meta(file, d), source: d.source || '',
   count: (d.words || []).length, texts: (d.texts || []).length });
 const idxSet = (file, d) => { if (!INDEX) return; const e = idxEntry(file, d), i = INDEX.findIndex(x => x.file === file); i < 0 ? INDEX.push(e) : (INDEX[i] = e); };
 const idxDel = file => { if (INDEX) INDEX = INDEX.filter(x => x.file !== file); };
-const pretty = d => JSON.stringify(d, null, 2) + '\n';
+/* sentence of an example / collocation / text (key "en", "fr", …) and the "[coll] (daily)" tag at the end of a collocation — same as sent / untag in make_index.py */
+const sent = (x, l) => (l && x[l]) || Object.keys(LANGS).map(k => x[k]).find(Boolean) || '';
+const untag = p => String(p || '').replace(/\s*\[[^\]]*\]\s*(\([^)]*\))?\s*$/, '');
+const pj = d => JSON.stringify(d, null, 2) + '\n';
 
 function validateList(d) {
   const errs = [], stars = s => (String(s).match(/\*/g) || []).length;
   if (!d || typeof d !== 'object' || Array.isArray(d)) return ['Top level must be an object with a "words" array'];
   if (!Array.isArray(d.words) || !d.words.length) return ['"words" is missing or empty'];
   if ('part' in d && !(Number.isInteger(d.part) && d.part > 0)) return ['"part" must be a positive integer'];
+  if ('lang' in d && !(d.lang in LANGS)) return ['"lang" must be one of ' + Object.keys(LANGS).join(', ')];
   const seen = new Set();
   d.words.forEach((w, i) => {
     const nm = `word ${i + 1} (${w.w || '?'})`;
-    for (const k of ['w', 'pos', 'def', 'ar', 'emoji']) if (!w[k]) errs.push(`${nm}: missing "${k}"`);
+    for (const k of ['w', 'pos', 'def', 'ar']) if (!w[k]) errs.push(`${nm}: missing "${k}"`);   // emoji is optional
     if (w.w) { const k = w.w.toLowerCase(); if (seen.has(k)) errs.push(`${nm}: duplicate word in this list`); seen.add(k); }
-    (w.col || []).forEach(c => {
-      if (stars(c.p || '') !== 2) errs.push(`${nm}: collocation "${c.p}" needs exactly one *form*`);
-      if (c.en && stars(c.en) !== 2) errs.push(`${nm}: example for "${c.p}" needs exactly one *form*`);
+    (w.col || []).forEach(c => {                       // *form* marks: none or exactly one pair
+      if (![0, 2].includes(stars(untag(c.p || '')))) errs.push(`${nm}: collocation "${c.p}" needs exactly one *form* (or none)`);
+      if (sent(c) && ![0, 2].includes(stars(sent(c)))) errs.push(`${nm}: example for "${c.p}" needs exactly one *form* (or none)`);
     });
-    (w.ex || []).forEach(x => { if (stars(x.en || '') !== 2) errs.push(`${nm}: example needs exactly one *form*: ${x.en}`); });
+    (w.ex || []).forEach(x => {
+      if (!sent(x)) errs.push(`${nm}: example has no sentence (use "en" or "fr")`);
+      else if (![0, 2].includes(stars(sent(x)))) errs.push(`${nm}: example needs exactly one *form* (or none): ${sent(x)}`);
+    });
   });
   return errs;
 }
@@ -66,15 +88,15 @@ function modal(html) {
   document.body.appendChild(o); return o;
 }
 function toast(msg) {
-  const t = document.createElement('div'); t.className = 'toast'; t.textContent = msg;
-  document.body.appendChild(t); setTimeout(() => t.remove(), 6000);
+  const el = document.createElement('div'); el.className = 'toast'; el.textContent = msg;
+  document.body.appendChild(el); setTimeout(() => el.remove(), 6000);
 }
 const DONE = '✓ Committed. The index rebuilds in about a minute.';
 const need = () => { const c = ghReady(); if (!c) { alert('Connect GitHub first (⬆️ Upload → GitHub connection).'); location.hash = '#/upload'; } return c; };
 
 /* ---------- toolbar on each list card (edit mode) ---------- */
 const listTools = file => '<div class="tools">' + [['edit', '✏️ Edit'], ['details', '🏷 Rename'], ['dup', '⧉ Duplicate'], ['dl', '⬇ Download'], ['del', '🗑 Delete']]
-  .map(([a, t]) => `<button class="btn alt sm" data-act="${a}" data-file="${esc(file)}">${t}</button>`).join('') + '</div>';
+  .map(([a, tx]) => `<button class="btn alt sm" data-act="${a}" data-file="${esc(file)}">${tx}</button>`).join('') + '</div>';
 
 document.addEventListener('click', e => {
   const b = e.target.closest('[data-act]'); if (!b) return;
@@ -88,7 +110,7 @@ async function orphanCards() {
   try {
     const miss = (await ghList(cfg)).filter(f => !(INDEX || []).some(e => e.file === f.name));
     return miss.length ? '<div class="tag">In the repo but not in the index (invalid, or build pending)</div>' +
-      miss.map(f => `<div class="card" style="padding:14px 18px"><b>${esc(f.name)}</b> <span class="bad">⚠ not indexed</span>${listTools(f.name)}</div>`).join('') : '';
+      miss.map(f => `<div class="card slim"><b>${esc(f.name)}</b> <span class="bad">⚠ not indexed</span>${listTools(f.name)}</div>`).join('') : '';
   } catch (e) { return `<p class="bad">${esc(e.message)}</p>`; }
 }
 
@@ -111,7 +133,7 @@ async function editList(f) {
   sv.onclick = async () => {
     const d = chk(); if (!d) return; sv.disabled = true; st.textContent = 'Committing…';
     try {
-      await ghCommit(cfg, 'edit list: ' + f.replace(/\.json$/, ''), [{ path: 'data/' + f, content: pretty(d) }]);
+      await ghCommit(cfg, 'edit list: ' + f.replace(/\.json$/, ''), [{ path: 'data/' + f, content: pj(d) }]);
       delete cache[listId(f)]; idxSet(f, d); m.remove(); toast(DONE); route();
     } catch (e) { st.innerHTML = `<span class="bad">${esc(e.message)}</span>`; sv.disabled = false; }
   };
@@ -145,7 +167,7 @@ async function detailsList(f) {
     try {
       const moved = newFile !== f;
       if (moved && (await ghList(cfg)).some(x => x.name === newFile)) return st.innerHTML = `<span class="bad">data/${esc(newFile)} already exists.</span>`;
-      const changes = [{ path: 'data/' + newFile, content: pretty(d) }]; if (moved) changes.push({ path: 'data/' + f, del: true });
+      const changes = [{ path: 'data/' + newFile, content: pj(d) }]; if (moved) changes.push({ path: 'data/' + f, del: true });
       await ghCommit(cfg, moved ? `rename list: ${base} → ${nf}` : 'update list details: ' + base, changes);
       if (moved) {                                    // carry progress over to the new id, then drop the old entry
         const o = listId(f) + '::', n = listId(newFile) + '::';
@@ -166,7 +188,7 @@ async function dupList(f) {
   try {
     if ((await ghList(cfg)).some(x => x.name === dir + nf + '.json')) return alert(`data/${dir}${nf}.json already exists.`);
     const file = await ghFile(cfg, f), d = JSON.parse(file.text); d.title = meta(f, d).title + ' (copy)';
-    await ghCommit(cfg, `duplicate list: ${base} → ${nf}`, [{ path: `data/${dir}${nf}.json`, content: pretty(d) }]);
+    await ghCommit(cfg, `duplicate list: ${base} → ${nf}`, [{ path: `data/${dir}${nf}.json`, content: pj(d) }]);
     idxSet(dir + nf + '.json', d); toast(DONE); route();
   } catch (e) { alert(e.message); }
 }
@@ -219,26 +241,27 @@ function renderUp() {
       const have = new Set((await ghList(cfg)).map(f => f.name)), over = ready.filter(r => have.has(r.path));
       if (over.length && !confirm(`Overwrite existing: ${over.map(r => r.path).join(', ')}?`)) { go.disabled = false; return; }
       await ghCommit(cfg, `${ready.length > 1 ? 'add lists' : 'add list'}: ${ready.map(r => r.name).join(', ')}`,
-        ready.map(r => ({ path: `data/${r.path}`, content: pretty(r.data) })));
+        ready.map(r => ({ path: `data/${r.path}`, content: pj(r.data) })));
       ready.forEach(r => { r.st = (have.has(r.path) ? 'updated' : 'uploaded') + ' ✓'; idxSet(r.path, r.data); delete cache[listId(r.path)]; });
       renderUp(); toast(DONE);
       document.getElementById('up-act').innerHTML = '<a class="btn" href="#/">← Back to lists</a>';
     } catch (e) { ready.forEach(r => r.st = 'failed: ' + e.message); renderUp(); }
   };
 }
-/* where each selected file goes. With a Group + Set chosen: data/<group>/<set>/part<N>.json — a file named part3.json keeps
+/* where each selected file goes. With a Group + Set chosen: data/[<lang>/]<group>/<set>/part<N>.json — a file named part3.json keeps
  * number 3, any other file name gets the next free part number. Without them: the group/set written inside the file, else flat. */
 function assignPaths() {
-  const val = id => (document.getElementById(id) || {}).value?.trim() || '', g = val('up-g'), s = val('up-s');
+  const val = id => (document.getElementById(id) || {}).value?.trim() || '', g = val('up-g'), s = val('up-s'), lang = val('up-l') || G.course;
   const explicit = r => partOf(r.name) || (r.data && r.data.part) || 0;
-  let next = Math.max(0, ...(INDEX || []).filter(e => e.group === g && e.set === s).map(e => e.part || 0), ...UP.map(explicit));
+  let next = Math.max(0, ...(INDEX || []).filter(e => e.lang === lang && e.group === g && e.set === s).map(e => e.part || 0), ...UP.map(explicit));
   UP.forEach(r => {
-    r.path = g && s ? `${gDir(g)}/${dirName(s) || 'set'}/part${explicit(r) || ++next}.json` : listPath(r.data, r.name);
+    const L = (r.data && r.data.lang) || lang;
+    r.path = g && s ? `${langDir(L)}${gDir(g)}/${dirName(s) || 'set'}/part${explicit(r) || ++next}.json` : listPath(r.data, r.name, L);
     r.errs = r.v.concat(!r.path.includes('/') && RESERVED.includes(r.name) ? [`"${r.name}" is a reserved name; rename the file`] : []);
   });
 }
 function uploadView(pg = '', ps = '') {
-  document.getElementById('crumb').textContent = '/ Upload'; UP = [];
+  crumbs([[t('home'), '#/'], ['Upload']]); UP = [];
   const c = ghCfg();
   app.innerHTML = `<h1>Upload lists</h1>
   <div class="card"><h2>1 · GitHub connection</h2>
@@ -247,14 +270,15 @@ function uploadView(pg = '', ps = '') {
     <input class="ans" id="gh-branch" placeholder="branch" value="${esc(c.branch)}" style="text-align:left">
     <input class="ans" id="gh-token" type="password" placeholder="GitHub token" value="${esc(c.token)}" style="text-align:left">
     <button class="btn alt" id="gh-save">Save</button> <span class="mut" id="gh-msg"></span></div>
-  <div class="card"><h2>2 · Category</h2>
-    <p class="mut">Lists are saved to <code>data/&lt;group&gt;/&lt;set&gt;/part&lt;N&gt;.json</code> and show up under that group and set as “Part N”.
+  <div class="card"><h2>2 · Language and category</h2>
+    <p class="mut">Lists are saved to <code>data/&lt;group&gt;/&lt;set&gt;/part&lt;N&gt;.json</code>  and show up under that group and set as “Part N”.
     A file named <code>part3.json</code> keeps number 3; any other file name gets the next free part number.
-    Leave both empty only for a list that has <code>group</code> and <code>set</code> written inside it (otherwise it is saved flat).</p>
+    Leave group and set empty only for a list that has <code>group</code> and <code>set</code> written inside it (otherwise it is saved flat, e.g. <code>data/en/animals.json</code>).</p>
+    <select class="ans" id="up-l">${Object.entries(LANGS).map(([k, v]) => `<option value="${k}"${k === G.course ? ' selected' : ''}>${v.flag} ${esc(v.name)}</option>`).join('')}</select>
     <input class="ans" id="up-g" list="up-gs" placeholder="Group, e.g. By Level" value="${esc(pg)}" style="text-align:left" autocomplete="off"><datalist id="up-gs"></datalist>
     <input class="ans" id="up-s" list="up-ss" placeholder="Set, e.g. Basic Vocabulary (A1A2)" value="${esc(ps)}" style="text-align:left" autocomplete="off"><datalist id="up-ss"></datalist></div>
   <div class="card"><h2>3 · Choose list files (.json)</h2>
-    <p class="mut">Same format as <a href="data/example.json">example.json</a>, but title, group, set and part are not needed. Every file is checked before upload, and all files go in one commit.</p>
+    <p class="mut">Same format as <a href="en_ex.json">en_ex.json</a>; title, group, set and part are not needed. Every file is checked before upload, and all files go in one commit.</p>
     <input type="file" id="up-files" accept=".json,application/json" multiple><div id="up-rows"></div><div id="up-act"></div></div>`;
   document.getElementById('gh-save').onclick = () => {
     const v = id => document.getElementById(id).value.trim();
@@ -270,19 +294,21 @@ function uploadView(pg = '', ps = '') {
     }
     assignPaths(); renderUp();
   };
-  /* suggestions: groups and sets from catalog.json + lists already uploaded */
+  /* suggestions: groups and sets from catalog.json + lists already uploaded, for the chosen language */
   const val = id => document.getElementById(id).value.trim();
+  const fillGroups = () => {
+    const L = val('up-l');
+    document.getElementById('up-gs').innerHTML = [...new Set([...(CAT || []).filter(c => (c.lang || 'en') === L).map(c => c.group), ...(INDEX || []).filter(e => e.lang === L).map(e => e.group).filter(Boolean)])]
+      .map(g => `<option value="${esc(g)}">`).join('');
+  };
   const fillSets = () => {
-    const g = val('up-g'), sets = new Set();
-    (CAT || []).filter(c => c.group === g).forEach(c => (c.sets || []).forEach(s => sets.add(s)));
-    (INDEX || []).filter(e => e.group === g && e.set).forEach(e => sets.add(e.set));
+    const g = val('up-g'), L = val('up-l'), sets = new Set();
+    (CAT || []).filter(c => c.group === g && (c.lang || 'en') === L).forEach(c => (c.sets || []).forEach(s => sets.add(s)));
+    (INDEX || []).filter(e => e.group === g && e.lang === L && e.set).forEach(e => sets.add(e.set));
     document.getElementById('up-ss').innerHTML = [...sets].map(s => `<option value="${esc(s)}">`).join('');
   };
-  Promise.all([getIndex(), getCatalog()]).then(() => {
-    document.getElementById('up-gs').innerHTML = [...new Set([...(CAT || []).map(c => c.group), ...INDEX.map(e => e.group).filter(Boolean)])]
-      .map(g => `<option value="${esc(g)}">`).join('');
-    fillSets(); assignPaths(); renderUp();
-  }).catch(() => {});
+  Promise.all([getIndex(), getCatalog()]).then(() => { fillGroups(); fillSets(); assignPaths(); renderUp(); }).catch(() => {});
+  document.getElementById('up-l').onchange = () => { fillGroups(); fillSets(); assignPaths(); renderUp(); };
   document.getElementById('up-g').oninput = () => { fillSets(); assignPaths(); renderUp(); };
   document.getElementById('up-s').oninput = () => { assignPaths(); renderUp(); };
 }
