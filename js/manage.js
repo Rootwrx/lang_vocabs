@@ -45,12 +45,13 @@ function meta(file, d) {
   const title = d.title || (part ? `${set || group || prettyName(stem)} – ${lang === 'fr' ? 'Partie' : 'Part'} ${part}` : set && !named ? `${set} – ${stem}` : set || prettyName(stem));
   return { group, set, part, title, lang };
 }
-const idxEntry = (file, d) => ({ id: listId(file), file, ...meta(file, d), source: d.source || '',
-  count: (d.words || []).length, texts: (d.texts || []).length });
+const idxEntry = (file, d) => ({
+  id: listId(file), file, ...meta(file, d), source: d.source || '',
+  count: (d.words || []).length, texts: (d.texts || []).length
+});
 const idxSet = (file, d) => { if (!INDEX) return; const e = idxEntry(file, d), i = INDEX.findIndex(x => x.file === file); i < 0 ? INDEX.push(e) : (INDEX[i] = e); };
 const idxDel = file => { if (INDEX) INDEX = INDEX.filter(x => x.file !== file); };
-/* sentence of an example / collocation / text (key "en", "fr", …) and the "[coll] (daily)" tag at the end of a collocation — same as sent / untag in make_index.py */
-const sent = (x, l) => (l && x[l]) || Object.keys(LANGS).map(k => x[k]).find(Boolean) || '';
+
 const untag = p => String(p || '').replace(/\s*\[[^\]]*\]\s*(\([^)]*\))?\s*$/, '');
 const pj = d => JSON.stringify(d, null, 2) + '\n';
 
@@ -282,7 +283,7 @@ function uploadView(pg = '', ps = '') {
     <input type="file" id="up-files" accept=".json,application/json" multiple><div id="up-rows"></div><div id="up-act"></div></div>`;
   document.getElementById('gh-save').onclick = () => {
     const v = id => document.getElementById(id).value.trim();
-    try { localStorage.setItem(GH_KEY, JSON.stringify({ repo: v('gh-repo'), branch: v('gh-branch') || 'main', token: v('gh-token') })); } catch (e) {}
+    try { localStorage.setItem(GH_KEY, JSON.stringify({ repo: v('gh-repo'), branch: v('gh-branch') || 'main', token: v('gh-token') })); } catch (e) { }
     document.getElementById('gh-msg').textContent = 'Saved ✓';
   };
   document.getElementById('up-files').onchange = async ev => {
@@ -307,7 +308,7 @@ function uploadView(pg = '', ps = '') {
     (INDEX || []).filter(e => e.group === g && e.lang === L && e.set).forEach(e => sets.add(e.set));
     document.getElementById('up-ss').innerHTML = [...sets].map(s => `<option value="${esc(s)}">`).join('');
   };
-  Promise.all([getIndex(), getCatalog()]).then(() => { fillGroups(); fillSets(); assignPaths(); renderUp(); }).catch(() => {});
+  Promise.all([getIndex(), getCatalog()]).then(() => { fillGroups(); fillSets(); assignPaths(); renderUp(); }).catch(() => { });
   document.getElementById('up-l').onchange = () => { fillGroups(); fillSets(); assignPaths(); renderUp(); };
   document.getElementById('up-g').oninput = () => { fillSets(); assignPaths(); renderUp(); };
   document.getElementById('up-s').oninput = () => { assignPaths(); renderUp(); };
