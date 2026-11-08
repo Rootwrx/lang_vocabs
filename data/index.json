@@ -24,11 +24,11 @@
   "texts": 2
  },
  {
-  "id": "fr__Vocabulaire_d_butant_A1A2___part1",
-  "file": "fr/Vocabulaire débutant (A1A2)/part1.json",
+  "id": "fr__by_level__Vocabulaire_d_butant_A1A2___part1",
+  "file": "fr/by level/Vocabulaire débutant (A1A2)/part1.json",
   "title": "Vocabulaire débutant (A1A2) – Partie 1",
   "lang": "fr",
-  "group": "",
+  "group": "By Level",
   "set": "Vocabulaire débutant (A1A2)",
   "part": 1,
   "source": "",
