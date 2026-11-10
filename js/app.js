@@ -11,13 +11,13 @@ const ap = s => String(s).replace(/[’‘]/g, "'");
 const reEsc = s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 const enc = s => encodeURIComponent(s);
 
-let S = {}; try { S = JSON.parse(localStorage.getItem('wordlists.v1') || '{}'); } catch (e) {}
-const save = () => { try { localStorage.setItem('wordlists.v1', JSON.stringify(S)); } catch (e) {} };
+let S = {}; try { S = JSON.parse(localStorage.getItem('wordlists.v1') || '{}'); } catch (e) { }
+const save = () => { try { localStorage.setItem('wordlists.v1', JSON.stringify(S)); } catch (e) { } };
 /* settings live under their own key so they never mix with progress */
 let G = { n: 3, acc: 'us', auto: false, where: 'both', theme: 'auto', hideAr: false, videos: true, course: 'en', ui: 'auto', last: null };
-try { Object.assign(G, JSON.parse(localStorage.getItem('wordlists.settings.v1') || '{}')); } catch (e) {}
+try { Object.assign(G, JSON.parse(localStorage.getItem('wordlists.settings.v1') || '{}')); } catch (e) { }
 if (!LANGS[G.course]) G.course = 'en';
-const saveG = () => { try { localStorage.setItem('wordlists.settings.v1', JSON.stringify(G)); } catch (e) {} };
+const saveG = () => { try { localStorage.setItem('wordlists.settings.v1', JSON.stringify(G)); } catch (e) { } };
 const setLast = (id, mode, i, title) => { G.last = { id, mode, i: i || 0, title, lang: G.course }; saveG(); };
 
 /* ---------- chrome: header, language switch, breadcrumbs ---------- */
@@ -79,7 +79,7 @@ const bar = (a, b) => `<div class="bar"><i style="width:${b ? Math.min(100, a / 
 const partCard = e => { const s = stat(e); return `<div class="card slim"><a class="blk" href="#/l/${e.id}"><h2>${esc(e.title)}</h2><div class="mut">${esc([groupLabel(e.group), e.set].filter(Boolean).join(' / '))} · ${e.count} ${t('words')} · <span class="${s.due ? 'good' : ''}">${s.due} ${t('due')}</span></div></a>${EDITMODE ? listTools(e.file) : ''}</div>`; };
 
 /* ---------- speech ---------- */
-const speak = txt => { try { const u = new SpeechSynthesisUtterance(txt); u.lang = LANGS[G.course].tts; u.rate = .9; speechSynthesis.cancel(); speechSynthesis.speak(u); } catch (e) {} };
+const speak = txt => { try { const u = new SpeechSynthesisUtterance(txt); u.lang = LANGS[G.course].tts; u.rate = .9; speechSynthesis.cancel(); speechSynthesis.speak(u); } catch (e) { } };
 window.speak = speak;
 
 /* ---------- YouGlish videos (lazy: nothing loads until a Videos button is tapped) ---------- */
@@ -103,8 +103,10 @@ async function ygOpen(btn) {
   upd();
   try {
     await ygLoad();
-    w = new YG.Widget(id, { width: Math.min(box.clientWidth || 320, 640), autoStart: G.auto ? 1 : 0,
-      events: { onFetchDone: e => { total = e.totalResult || 0; upd(); }, onError: () => { lab.textContent = t('yg_err'); } } });
+    w = new YG.Widget(id, {
+      width: Math.min(box.clientWidth || 320, 640), autoStart: G.auto ? 1 : 0,
+      events: { onFetchDone: e => { total = e.totalResult || 0; upd(); }, onError: () => { lab.textContent = t('yg_err'); } }
+    });
     w.fetch(q, LANGS[G.course].yg, ygAccent());
   } catch (e) { document.getElementById(id).innerHTML = `<span class="bad">${t('yg_fail')}</span>`; return; }
   bp.onclick = () => { if (pos > 1) { pos--; w.previous(); upd(); } };
@@ -179,8 +181,10 @@ function wordCard(l, w, full) {
   if (gram) h += `<div class="box gram">${gram}</div>`;
   if (G.where !== 'cols') h += ygBtn(w.yg || w.w, t('videos_for', { w: esc(w.w) }));
   if ((w.ex || []).length) h += `<div class="tag">${t('examples')}</div>` + w.ex.map(x => `<div class="box">${fm(sent(x, l.lang))}<div class="ar">${esc(x.ar || '')}</div></div>`).join('');
-  if ((w.col || []).length) h += `<div class="tag">${t('collocations')}</div>` + w.col.map(c => { const q = colParse(c.p), ex = sent(c, l.lang);
-    return `<div class="box"><div><b>${fm(q.p)}</b>${q.kind ? ` <span class="tagc">${esc(q.kind)}</span>` : ''}${q.reg ? ` <span class="tagc">${esc(q.reg)}</span>` : ''}</div>${c.p_ar ? `<div class="ar" style="font-size:18px">${esc(c.p_ar)}</div>` : ''}${ex ? `<div class="mut" style="font-style:italic">${fm(ex)}</div>` : ''}${c.ar ? `<div class="ar" style="font-size:18px">${esc(c.ar)}</div>` : ''}${G.where !== 'words' ? `<div>${ygBtn(c.yg || q.p)}</div>` : ''}</div>`; }).join('');
+  if ((w.col || []).length) h += `<div class="tag">${t('collocations')}</div>` + w.col.map(c => {
+    const q = colParse(c.p), ex = sent(c, l.lang);
+    return `<div class="box"><div><b>${fm(q.p)}</b>${q.kind ? ` <span class="tagc">${esc(q.kind)}</span>` : ''}${q.reg ? ` <span class="tagc">${esc(q.reg)}</span>` : ''}</div>${c.p_ar ? `<div class="ar" style="font-size:18px">${esc(c.p_ar)}</div>` : ''}${ex ? `<div class="mut" style="font-style:italic">${fm(ex)}</div>` : ''}${c.ar ? `<div class="ar" style="font-size:18px">${esc(c.ar)}</div>` : ''}${G.where !== 'words' ? `<div>${ygBtn(c.yg || q.p)}</div>` : ''}</div>`;
+  }).join('');
   const ts = textSentences(l, w);
   if (ts.length) h += `<div class="tag">${t('in_texts')}</div>` + ts.map(s => `<div class="box">${fm(s)}</div>`).join('');
   if ((w.family || []).length) h += `<div class="tag">${t('family')}</div>` + w.family.map(f => { const q = f.replace(/\s*\(.*?\)\s*/g, ' ').trim(); return `<button class="chip fam" data-q="${enc(q)}"><span class="ygi">🎬 </span>${esc(f)}</button>`; }).join('') + '<div class="famyg"></div>';
@@ -196,6 +200,7 @@ async function home() {
   const last = G.last && G.last.lang === L && mine.find(e => e.id === G.last.id) ? G.last : null;
   app.innerHTML = `<h1>${LANGS[L].flag} ${t('lists')}</h1>
   ${last ? `<a class="card cont" href="#/l/${last.id}${last.mode ? '/' + last.mode + '/' + last.i : ''}"><div class="mut">${t('cont')}</div><h2>${esc(last.title)}</h2><div class="mut">${seen} ${t('words')} · <span class="${due ? 'good' : ''}">${due} ${t('due')}</span></div></a>` : ''}
+  <a class="card cont" href="#/today"><div class="mut">${pt('today')}</div><h2>${due} ${t('due')} · +10 ${t('words')}</h2></a>
   <input class="ans" id="q" type="search" placeholder="${esc(t('search'))}" style="text-align:left" autocomplete="off"><div id="hits"></div><div id="lists"></div>
   <div class="row"><button class="btn alt" id="editmode"></button><a class="btn alt" href="#/upload">${t('upload')}</a></div><div id="orph"></div>`;
   let tok = 0;
@@ -279,7 +284,7 @@ async function listMenu(id) {
   ${sibs.length > 1 ? `<div class="tag">${t('other_parts')}</div><div class="strip">${sibs.map(e => `<a class="chip${e.id === id ? ' on' : ''}" href="#/l/${e.id}">${esc(partLabel(e))}</a>`).join('')}</div>` : ''}
   ${step(1, t('learn'), t('learn_d'), `<a class="btn" href="#/l/${id}/study/0">${t('start_learning')}</a>`)}
   ${(l.texts || []).length ? step(2, t('read'), '', l.texts.map((x, i) => `<a class="btn alt" href="#/l/${id}/text/${i}">${esc(x.title || t('text') + ' ' + (i + 1))}</a>`).join('')) : ''}
-  ${step(3, t('flash'), `${t('flash_d')} ${due} ${t('due')} · ${seen}/${l.words.length} ${t('started')}.`, `<a class="btn" href="#/l/${id}/review">${t('review_now')}</a>`)}
+  ${step(3, pt('practice'), pt('practice_d'), `<a class="btn" href="#/l/${id}/practice">${pt('start_practice')}</a><a class="btn alt" href="#/l/${id}/review">${pt('review_due')} (${due})</a>`)}
   <div class="card"><h2>${t('words_h')}</h2>${l.words.map((w, i) => `<a class="chip" href="#/l/${id}/study/${i}">${esc(w.w)}</a>`).join('')}
   <p><button class="btn alt" id="reset">${t('reset')}</button></p></div>
   ${prev || next ? `<div class="nav">${prev ? `<a class="btn alt" href="#/l/${prev.id}">${t('prev_part')}</a>` : '<span></span>'}${next ? `<a class="btn" href="#/l/${next.id}">${t('next_part')}</a>` : '<span></span>'}</div>` : ''}`;
@@ -293,9 +298,9 @@ async function study(id, i) {
   <div class="card">${wordCard(l, w, true)}</div>
   <div class="nav"><a class="btn alt" ${i ? `href="#/l/${id}/study/${i - 1}"` : 'style="visibility:hidden"'}>${t('back')}</a>
   <select class="jump" id="jump" aria-label="${esc(t('jump'))}">${l.words.map((x, k) => `<option value="${k}"${k === i ? ' selected' : ''}>${k + 1}. ${esc(x.w)}</option>`).join('')}</select>
-  ${i < n - 1 ? `<a class="btn" href="#/l/${id}/study/${i + 1}">${t('next')}</a>` : `<a class="btn" href="#/l/${id}/review">${t('start_flash')}</a>`}</div>`;
+  ${i < n - 1 ? `<a class="btn" href="#/l/${id}/study/${i + 1}">${t('next')}</a>` : `<a class="btn" href="#/l/${id}/practice">${t('start_flash')}</a>`}</div>`;
   document.getElementById('jump').onchange = e => { location.hash = `#/l/${id}/study/${e.target.value}`; };
-  KEYS = { ArrowLeft: () => i && (location.hash = `#/l/${id}/study/${i - 1}`), ArrowRight: () => { location.hash = i < n - 1 ? `#/l/${id}/study/${i + 1}` : `#/l/${id}/review`; } };
+  KEYS = { ArrowLeft: () => i && (location.hash = `#/l/${id}/study/${i - 1}`), ArrowRight: () => { location.hash = i < n - 1 ? `#/l/${id}/study/${i + 1}` : `#/l/${id}/practice`; } };
   setLast(id, 'study', i, l.title);
 }
 async function textView(id, ti) {
@@ -306,43 +311,13 @@ async function textView(id, ti) {
   <div class="card text">${para(sent(tx, l.lang))}</div>
   ${tx.ar ? `<button class="btn alt arbtn" id="tgl">${t('toggle_ar')}</button><div id="tr" class="card ar" style="display:none">${esc(tx.ar).replace(/\n\s*\n/g, '<br><br>')}</div>` : ''}
   <p class="mut">${t('tap_word')}</p><div id="pop"></div>
-  <div class="nav">${ti ? `<a class="btn alt" href="#/l/${id}/text/${ti - 1}">${t('prev')}</a>` : '<span></span>'}${ti < l.texts.length - 1 ? `<a class="btn" href="#/l/${id}/text/${ti + 1}">${t('next_text')}</a>` : `<a class="btn" href="#/l/${id}/review">${t('flashcards_arrow')}</a>`}</div>`;
+  <div class="nav">${ti ? `<a class="btn alt" href="#/l/${id}/text/${ti - 1}">${t('prev')}</a>` : '<span></span>'}${ti < l.texts.length - 1 ? `<a class="btn" href="#/l/${id}/text/${ti + 1}">${t('next_text')}</a>` : `<a class="btn" href="#/l/${id}/practice">${t('flashcards_arrow')}</a>`}</div>`;
   const tg = document.getElementById('tgl'); if (tg) tg.onclick = () => { const x = document.getElementById('tr'); x.style.display = x.style.display === 'none' ? 'block' : 'none'; };
   app.querySelectorAll('.tw').forEach(el => el.onclick = () => { const w = l.words.find(x => x.w.toLowerCase() === el.dataset.w); if (w) document.getElementById('pop').innerHTML = '<div class="card">' + wordCard(l, w, false) + '</div>'; });
   setLast(id, 'text', ti, l.title);
 }
 
 /* ---------- review: retrieval first, then reveal, then self-grade ---------- */
-let Q = null;
-async function review(id) {
-  const l = await getList(id); useLang(l.lang); crumbs(crumbsFor(l, t('flash')));
-  if (!Q || Q.id !== id) { Q = { id, q: l.words.filter(w => isDue(l, w)).sort(() => Math.random() - .5), done: 0, total: 0 }; Q.total = Q.q.length; }
-  if (!Q.q.length) {
-    const next = Math.min(...l.words.map(w => (st(l, w) || { due: Infinity }).due)); Q = null;
-    app.innerHTML = `<div class="card center"><h1>${t('all_done')}</h1><p class="mut">${isFinite(next) ? t('next_due') + new Date(next).toLocaleString() : ''}</p><a class="btn" href="#/l/${id}">${t('back_list')}</a></div>`; return;
-  }
-  const w = Q.q[0], ss = sentences(l, w), s = ss.length && Math.random() < .8 ? rnd(ss) : null; let cue, target;
-  if (s) { const m = s.match(/\*([^*]+)\*/); target = m[1]; cue = `<div class="tag">${t('fill')}</div><div style="font-size:23px">${esc(s).replace(/\*[^*]+\*/, BLANK)}</div>` + (ap(target).toLowerCase() !== ap(w.w).toLowerCase() ? `<div class="mut">→ ${esc(w.w)}</div>` : ''); }
-  else { target = w.w; cue = `<div class="tag">${t('which')}</div><div style="font-size:21px">${blankOut(w.def, w.w)}</div>`; }
-  app.innerHTML = `${bar(Q.done, Math.max(1, Q.total))}<div class="mut" style="margin:6px 0">${Q.q.length} ${t('left')}</div>
-  <div class="card center">${cue}<span class="pos" style="margin-top:8px">${esc(w.pos)}</span>
-  <div id="hintbox"><button class="btn alt arbtn" id="hint">${t('hint_ar')}</button></div>
-  <input class="ans" id="ans" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="${esc(t('type_ph'))}">
-  <button class="btn" id="chk">${t('check')}</button><div id="back"></div></div>`;
-  const inp = document.getElementById('ans'); inp.focus();
-  document.getElementById('hint').onclick = () => { document.getElementById('hintbox').innerHTML = '<div class="ar" style="text-align:center">' + esc(w.ar) + '</div>'; };
-  const check = () => {
-    const a = ap(inp.value.trim()).toLowerCase(), b = ap(target).toLowerCase(), exact = a === b, loose = !exact && a && nz(a) === nz(b), ok = exact || loose;
-    inp.disabled = true; document.getElementById('chk').remove();
-    document.getElementById('back').innerHTML = `<p class="${ok ? 'good' : 'bad'}">${exact ? t('correct') : loose ? t('accents') + esc(target) : t('answer') + esc(target)}</p><div style="text-align:left">${wordCard(l, w, true)}</div>
-    <div class="rate">${['again', 'hard', 'good', 'easy'].map((n, g) => `<button class="btn ${g === (ok ? 2 : 0) ? '' : 'alt'}" data-g="${g}">${t(n)}</button>`).join('')}</div>
-    <p class="mut">${t('honest')}</p>`;
-    speak(target);
-    document.querySelectorAll('.rate .btn').forEach(bt => bt.onclick = () => { const g = +bt.dataset.g; grade(l, w, g); Q.q.shift(); if (g === 0) Q.q.push(w); else Q.done++; review(id); });
-  };
-  document.getElementById('chk').onclick = check; inp.onkeydown = e => { if (e.key === 'Enter') check(); };
-  setLast(id, 'review', 0, l.title);
-}
 
 /* ---------- settings ---------- */
 function settings() {
@@ -378,10 +353,11 @@ async function route() {
     else if (p[0] === 'l' && p.length === 2) await listMenu(p[1]);
     else if (p[0] === 'l' && p[2] === 'study') await study(p[1], +p[3] || 0);
     else if (p[0] === 'l' && p[2] === 'text') await textView(p[1], +p[3] || 0);
-    else if (p[0] === 'l' && p[2] === 'review') await review(p[1]);
+    else if (p[0] === 'l' && (p[2] === 'review' || p[2] === 'practice')) await practice(p[1], p[2]);
+    else if (p[0] === 'today') await today(p[1]);
     else await home();
     window.scrollTo(0, 0);
   } catch (e) { crumbs([[t('home'), '#/']]); app.innerHTML = '<div class="card bad">' + esc(e.message) + '<br><span class="mut">' + t('serve_hint') + '</span></div>'; }
 }
-addEventListener('hashchange', () => { if (!location.hash.endsWith('/review')) Q = null; route(); });
+addEventListener('hashchange', route)
 applyUI(); route();

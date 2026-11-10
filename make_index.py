@@ -103,6 +103,7 @@ entries, search, failed = [], [], 0
 for f in sorted(DATA.rglob("*.json")):
     rel = f.relative_to(DATA)
     if rel.name in SKIP and len(rel.parts) == 1: continue
+    if re.fullmatch(r"practice[-_ ]?\d+", f.stem, re.I): continue
     try:
         d = json.loads(f.read_text(encoding="utf-8-sig"))   # utf-8-sig: tolerate a BOM
         errs = check(d)
